@@ -1,0 +1,24 @@
+.heading li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none; /* Remove default underline */
+  padding-bottom: 2px; /* Add a small padding to accommodate the underline */
+}
+
+.heading li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display:inline-block;
+  margin-top: 0; /* Adjust the margin to 0 to prevent additional space */
+  left: 0; /* Start the underline from the left */
+  bottom: 0; /* Position the underline at the bottom of the link */
+  background: rgb(223, 21, 21); /* Change this color to the desired underline color */
+  transition: width 0.2s ease;
+}
+
+.heading li a:hover::after {
+  width: 100%;
+  left: 0;
+}
