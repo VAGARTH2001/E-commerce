@@ -9,7 +9,7 @@ const Product = () => {
   const product_id = Number(productId);
   const { products } = useContext(ShopContext);
   const data = products.find((item) => item.id === product_id);
-  console.log(data, product_id);
+  
 
   return (
     <div>

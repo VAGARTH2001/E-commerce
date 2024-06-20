@@ -4,35 +4,31 @@ import products from "../Components/Assest/product";
 export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [Cart, setCart] = useState([]);
-  const [wishlist, setwishlist] = useState([])
+  const [wishlist, setwishlist] = useState([]);
 
   // Add to wishlist
-  const addtowishlist = (id,selectedsize)=>{
+  const addtowishlist = (id, selectedsize) => {
     setwishlist((prevwishlist) => {
       const itemindex = prevwishlist.findIndex((item) => {
         return item.id === id && item.size === selectedsize;
       });
 
-      
-        if (itemindex === -1) {
+      if (itemindex === -1) {
         const newItem = { id, number: 1, size: selectedsize };
         return [...prevwishlist, newItem];
       }
-       
     });
-     
-    
-  }
+  };
   // console.log(wishlist);
   // Remove from wishlist
 
-  const removefromwishlist = (id,selectedsize)=>{
+  const removefromwishlist = (id, selectedsize) => {
     setwishlist((prevwishlist) =>
-      prevwishlist.filter((item) => !(item.id === id && item.size === selectedsize))
+      prevwishlist.filter(
+        (item) => !(item.id === id && item.size === selectedsize)
+      )
     );
-
-
-  }
+  };
 
   // Add to cart
 
@@ -50,16 +46,30 @@ const ShopContextProvider = (props) => {
         };
 
         return updatedCart;
-      }
-       else if (selectedsize !== null) {
+      } else if (selectedsize !== null) {
         const newItem = { id, number: 1, size: selectedsize };
         return [...prevCart, newItem];
       }
-       
     });
   };
   console.log(Cart);
-  
+
+  // Store cart in localstorage
+  const storecart = () => {
+    const cartstring = JSON.stringify(Cart);
+    localStorage.setItem("Cart", cartstring);
+  };
+
+  // Retrieve Cart from localstorage
+
+  const getcart =()=>{
+    const cartstring = localStorage.getItem('Cart')
+    return JSON.parse(cartstring) || []
+  }
+  // Manage cart on page reload  
+  const initcart =()=>{
+    setCart(getcart())
+  }
   // Remove from cart
 
   const removefromcart = (id, selectedsize) => {
@@ -68,7 +78,18 @@ const ShopContextProvider = (props) => {
     );
   };
 
-  const contextValue = { products, Cart, addtocart, removefromcart , addtowishlist ,wishlist , removefromwishlist};
+  const contextValue = {
+    products,
+    Cart,
+    addtocart,
+    removefromcart,
+    addtowishlist,
+    wishlist,
+    removefromwishlist,
+    storecart,
+    getcart,
+    initcart
+  };
 
   return (
     <ShopContext.Provider value={contextValue}>

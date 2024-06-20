@@ -1,11 +1,16 @@
 import React from "react";
 import ecommerce from "../Assest/ecommerce.png";
 import './Navbar.css'
-import { Link } from "react-router-dom";
+import { Link , useNavigate  } from "react-router-dom";
+
 
 
 
 const Navbar = () => {
+  const navigate = useNavigate()
+  const handlenavigate = ()=>{
+    navigate('/cart')
+  }
   return (
     <>
     <div className="Navbar flex justify-evenly gap-56 sticky top-0 bg-white z-50 border-b-2 shadow-sm  ">
@@ -38,7 +43,7 @@ const Navbar = () => {
             style={{ width: "32x", height: "32px" }}
           ></lord-icon>
         </div>
-        <div className="cart">
+        <div onClick= {handlenavigate} className="cart">
           <lord-icon
             src="https://cdn.lordicon.com/evyuuwna.json"
             trigger="hover"

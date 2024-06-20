@@ -1,11 +1,13 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef , useEffect } from "react";
 import star from "../Assest/Green_star.png";
 import bag from "../Assest/bag.png";
 import heart from "../Assest/heart.png";
 import { ShopContext } from "../../Context/ShopContext";
+import {  toast } from "react-toastify";
+
 
 const ProductDisplay = (props) => {
-  const { addtocart , addtowishlist } = useContext(ShopContext);
+  const { addtocart, addtowishlist , storecart , initcart } = useContext(ShopContext);
   const box1ref = useRef();
   const box2ref = useRef();
   const box3ref = useRef();
@@ -13,16 +15,22 @@ const ProductDisplay = (props) => {
   const box5ref = useRef();
 
   const [selectedsize, setselectedsize] = useState();
-  const [inwishlist, setinwishlist] = useState(false)
+  const [inwishlist, setinwishlist] = useState(false);
+  const [text, settext] = useState("WISHLIST");
   
-// Size div
+  useEffect(() => {
+    initcart()
+  }, [])
+  
+    
+  // Size div
 
   const handleclick = (event) => {
     const size = event.currentTarget
       .querySelector(".sizeDiv")
       .textContent.replace(/"/g);
     setselectedsize(size);
-    if (size === 'S') {
+    if (size === "S") {
       box1ref.current.style.border = "3px solid orange";
     } else if (size === "M") {
       box2ref.current.style.border = "3px solid orange";
@@ -32,33 +40,60 @@ const ProductDisplay = (props) => {
       box4ref.current.style.border = "3px solid orange";
     } else if (size === "XXL") {
       box5ref.current.style.border = "3px solid orange";
-    } else{
-      return
-    }
-
-    
-  };
-  
-  // Wishlist div
-
-  const handlewishlist = ()=>{
-    if (!selectedsize) {
-      alert("Please select a size");
+    } else {
       return;
     }
-    addtowishlist(props.id,selectedsize)
-  }
+  };
+
+  // Wishlist div
+
+  const handlewishlist = () => {
+    if (!selectedsize) {
+      toast.error("Please select a size" ,{autoClose:2000});
+      return;
+    }
+    addtowishlist(props.id, selectedsize);
+    setinwishlist(true);
+    settext("WISHLISTED");
+
+    box1ref.current.style.border = "1px solid black";
+    box2ref.current.style.border = "1px solid black";
+    box3ref.current.style.border = "1px solid black";
+    box4ref.current.style.border = "1px solid black";
+    box5ref.current.style.border = "1px solid black";
+    setselectedsize("")
+  };
   // Cart div
 
   const handlecart = () => {
     if (!selectedsize) {
-      alert("Please select a size");
+      toast.error("Please select a size" ,{autoClose:2000});
       return;
     }
     addtocart(props.id, selectedsize);
-    
+    storecart()
+
+    toast.success(
+      <div className="flex items-center">
+        <img src={props.image} alt="bag icon" className="w-[40px] h-[50px] mr-2" />
+        <span className="font-semibold">Added to bag</span>
+      </div>,
+      {
+        autoClose:2000
+      }
+    );
+
+
+    box1ref.current.style.border = "1px solid black";
+    box2ref.current.style.border = "1px solid black";
+    box3ref.current.style.border = "1px solid black";
+    box4ref.current.style.border = "1px solid black";
+    box5ref.current.style.border = "1px solid black";
+    setselectedsize("")
   };
+
   
+
   const discount =
     ((props.old_price - props.new_price) / props.new_price) * 100;
 
@@ -178,17 +213,32 @@ const ProductDisplay = (props) => {
               </div>
             </div>
           </div>
-          <div className="buttons ml-9 mt-8 flex gap-3">
+          <div className="buttons ml-9 mt-8 flex gap-3 ">
             <div
               onClick={handlecart}
               className="bag cursor-pointer w-[267px] h-[50px] border rounded-lg bg-red-500 flex justify-center items-center gap-2"
             >
+              
               <img className="w-[30px]" src={bag} alt="" />
               <div className="font-semibold text-white">ADD TO BAG</div>
             </div>
-            <div onClick={handlewishlist} className="wishlisht cursor-pointer w-[200px] h-[50px] border border-black rounded-lg flex justify-center items-center gap-2  ">
-              <img className=" w-[25px] invert" src={heart} alt="" />
-              <div className="font-semibold">WISHLIST</div>
+           
+            <div
+              style={{
+                pointerEvents: inwishlist ? "none" : "auto",
+                backgroundColor: inwishlist ? "#ef4444" : null,
+                color: inwishlist ? "white" : null,
+              }}
+              onClick={handlewishlist}
+              className="wishlisht cursor-pointer w-[200px] h-[50px] border rounded-lg flex justify-center items-center gap-2  "
+            >
+              <img
+                style={{ filter: inwishlist ? "none" : null }}
+                className=" w-[25px] invert"
+                src={heart}
+                alt=""
+              />
+              <div className="font-semibold">{text}</div>
             </div>
           </div>
           <div className="line ml-8 mt-7 w-[70%]   border bg-gray-500"></div>
