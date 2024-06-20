@@ -12,7 +12,7 @@ const Sample = (props) => {
 
    <div className="img w-[250px] border ml-5 mt-5 ">
         <img className="w-[250px] " src={props.image} alt="" />
-        <p className="font-semibold text-lg pl-[90px]">{props.brand}</p>
+        <p className="font-semibold text-lg pl-[20px]">{props.brand}</p>
         <p className="text-base pl-5">{props.category} {props.name}</p>
         <div className="price ml-7 flex gap-2">
           <div className="new text-3xl font-semibold"> ${props.new_price}</div>

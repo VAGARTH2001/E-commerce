@@ -1,9 +1,64 @@
-import React from "react";
+import React, { useContext, useState, useRef } from "react";
 import star from "../Assest/Green_star.png";
-import bag from '../Assest/bag.png'
-import heart from '../Assest/heart.png'
+import bag from "../Assest/bag.png";
+import heart from "../Assest/heart.png";
+import { ShopContext } from "../../Context/ShopContext";
 
 const ProductDisplay = (props) => {
+  const { addtocart , addtowishlist } = useContext(ShopContext);
+  const box1ref = useRef();
+  const box2ref = useRef();
+  const box3ref = useRef();
+  const box4ref = useRef();
+  const box5ref = useRef();
+
+  const [selectedsize, setselectedsize] = useState();
+  const [inwishlist, setinwishlist] = useState(false)
+  
+// Size div
+
+  const handleclick = (event) => {
+    const size = event.currentTarget
+      .querySelector(".sizeDiv")
+      .textContent.replace(/"/g);
+    setselectedsize(size);
+    if (size === 'S') {
+      box1ref.current.style.border = "3px solid orange";
+    } else if (size === "M") {
+      box2ref.current.style.border = "3px solid orange";
+    } else if (size === "L") {
+      box3ref.current.style.border = "3px solid orange";
+    } else if (size === "XL") {
+      box4ref.current.style.border = "3px solid orange";
+    } else if (size === "XXL") {
+      box5ref.current.style.border = "3px solid orange";
+    } else{
+      return
+    }
+
+    
+  };
+  
+  // Wishlist div
+
+  const handlewishlist = ()=>{
+    if (!selectedsize) {
+      alert("Please select a size");
+      return;
+    }
+    addtowishlist(props.id,selectedsize)
+  }
+  // Cart div
+
+  const handlecart = () => {
+    if (!selectedsize) {
+      alert("Please select a size");
+      return;
+    }
+    addtocart(props.id, selectedsize);
+    
+  };
+  
   const discount =
     ((props.old_price - props.new_price) / props.new_price) * 100;
 
@@ -77,49 +132,80 @@ const ProductDisplay = (props) => {
           <div className="size ml-8 mt-7 ">
             <p className="font-semibold">SELECT SIZE</p>
             <div className="sizes flex gap-3">
-              <div className="S w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 flex flex-col justify-center items-center pb-1 cursor-pointer">
-                <div className="font-semibold">S</div>
+              <div
+                ref={box1ref}
+                onClick={handleclick}
+                className=" w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 flex flex-col justify-center items-center pb-1 cursor-pointer"
+              >
+                <div className=" sizeDiv font-semibold">S</div>
                 <div className="text-xs">${props.new_price}</div>
               </div>
-              <div className="M w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1 ">
-                <div className="font-semibold">M</div>
+              <div
+                ref={box2ref}
+                onClick={handleclick}
+                className=" w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1 "
+              >
+                <div className="sizeDiv font-semibold">M</div>
                 <div className="text-xs">${props.new_price}</div>
               </div>
-              <div className="L w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1">
-                <div className="font-semibold">L</div>
+              <div
+                ref={box3ref}
+                onClick={handleclick}
+                className=" w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1"
+              >
+                <div className="sizeDiv font-semibold">L</div>
                 <div className="text-xs">${props.new_price}</div>
               </div>
-              <div className="XL w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1">
-                <div className="font-semibold">XL</div>
-                <div className="text-xs">${(props.new_price + 1).toFixed(2)}</div>
+              <div
+                ref={box4ref}
+                onClick={handleclick}
+                className=" w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1"
+              >
+                <div className=" sizeDiv font-semibold">XL</div>
+                <div className="text-xs">
+                  ${(props.new_price + 1).toFixed(2)}
+                </div>
               </div>
-              <div className="XXL w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1 ">
-                <div className="font-semibold">XXL</div>
-                <div className="text-xs">${(props.new_price + 3).toFixed(2)}</div>
+              <div
+                ref={box5ref}
+                onClick={handleclick}
+                className=" w-[70px] h-[40px] border border-black rounded-3xl mt-4 shadow-lg hover:border-orange-400 cursor-pointer flex flex-col justify-center items-center pb-1 "
+              >
+                <div className=" sizeDiv font-semibold">XXL</div>
+                <div className="text-xs">
+                  ${(props.new_price + 3).toFixed(2)}
+                </div>
               </div>
             </div>
           </div>
           <div className="buttons ml-9 mt-8 flex gap-3">
-            <div className="bag cursor-pointer w-[267px] h-[50px] border rounded-lg bg-red-500 flex justify-center items-center gap-2">
+            <div
+              onClick={handlecart}
+              className="bag cursor-pointer w-[267px] h-[50px] border rounded-lg bg-red-500 flex justify-center items-center gap-2"
+            >
               <img className="w-[30px]" src={bag} alt="" />
               <div className="font-semibold text-white">ADD TO BAG</div>
             </div>
-            <div className="wishlisht cursor-pointer w-[200px] h-[50px] border border-black rounded-lg flex justify-center items-center gap-2  ">
-             <img className=" w-[25px] invert" src={heart} alt="" />
+            <div onClick={handlewishlist} className="wishlisht cursor-pointer w-[200px] h-[50px] border border-black rounded-lg flex justify-center items-center gap-2  ">
+              <img className=" w-[25px] invert" src={heart} alt="" />
               <div className="font-semibold">WISHLIST</div>
             </div>
           </div>
           <div className="line ml-8 mt-7 w-[70%]   border bg-gray-500"></div>
           <p className="ml-8 text-gray-600">100% Original products</p>
-          <p className="ml-8 text-gray-600">Pay on delivery might be available</p>
-          <p className="ml-8 text-gray-600">Easy 14 days returns and exchanges</p>
+          <p className="ml-8 text-gray-600">
+            Pay on delivery might be available
+          </p>
+          <p className="ml-8 text-gray-600">
+            Easy 14 days returns and exchanges
+          </p>
           <div className="flex ml-8 mt-7 gap-1">
             <p className="font-semibold">Category:</p>
             <p>{props.category}</p>
           </div>
           <div className="flex ml-8  gap-1">
-          <p className="font-semibold">Tags:</p>
-          <p>Modern,Latest</p>
+            <p className="font-semibold">Tags:</p>
+            <p>Modern,Latest</p>
           </div>
         </div>
       </div>
