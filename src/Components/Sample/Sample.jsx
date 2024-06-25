@@ -8,7 +8,7 @@ const Sample = (props) => {
   return (
    <>
    <div className="Sample">
-   <Link to ={`/product/${props.id}`} target="_blank" onClick={window.scrollTo(0,0)}>
+   <Link to ={`/product/${props.id}`}  onClick={window.scrollTo(0,0)}>
 
    <div className="img w-[250px] border ml-5 mt-5 ">
         <img className="w-[250px] " src={props.image} alt="" />

@@ -1,13 +1,12 @@
-import React, { useContext, useState, useRef , useEffect } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import star from "../Assest/Green_star.png";
 import bag from "../Assest/bag.png";
 import heart from "../Assest/heart.png";
 import { ShopContext } from "../../Context/ShopContext";
-import {  toast } from "react-toastify";
-
+import { toast } from "react-toastify";
 
 const ProductDisplay = (props) => {
-  const { addtocart, addtowishlist , storecart , initcart } = useContext(ShopContext);
+  const { addtocart, addtowishlist, Cart , storecart ,getcart , setCart } = useContext(ShopContext);
   const box1ref = useRef();
   const box2ref = useRef();
   const box3ref = useRef();
@@ -17,12 +16,11 @@ const ProductDisplay = (props) => {
   const [selectedsize, setselectedsize] = useState();
   const [inwishlist, setinwishlist] = useState(false);
   const [text, settext] = useState("WISHLIST");
+
   
-  useEffect(() => {
-    initcart()
-  }, [])
   
-    
+
+
   // Size div
 
   const handleclick = (event) => {
@@ -49,7 +47,7 @@ const ProductDisplay = (props) => {
 
   const handlewishlist = () => {
     if (!selectedsize) {
-      toast.error("Please select a size" ,{autoClose:2000});
+      toast.error("Please select a size", { autoClose: 2000 });
       return;
     }
     addtowishlist(props.id, selectedsize);
@@ -61,38 +59,40 @@ const ProductDisplay = (props) => {
     box3ref.current.style.border = "1px solid black";
     box4ref.current.style.border = "1px solid black";
     box5ref.current.style.border = "1px solid black";
-    setselectedsize("")
+    setselectedsize("");
   };
   // Cart div
 
   const handlecart = () => {
     if (!selectedsize) {
-      toast.error("Please select a size" ,{autoClose:2000});
+      toast.error("Please select a size", { autoClose: 2000 });
       return;
     }
     addtocart(props.id, selectedsize);
-    storecart()
+    storecart();
 
     toast.success(
       <div className="flex items-center">
-        <img src={props.image} alt="bag icon" className="w-[40px] h-[50px] mr-2" />
+        <img
+          src={props.image}
+          alt="bag icon"
+          className="w-[40px] h-[50px] mr-2"
+        />
         <span className="font-semibold">Added to bag</span>
       </div>,
       {
-        autoClose:2000
+        autoClose: 2000,
       }
     );
-
 
     box1ref.current.style.border = "1px solid black";
     box2ref.current.style.border = "1px solid black";
     box3ref.current.style.border = "1px solid black";
     box4ref.current.style.border = "1px solid black";
     box5ref.current.style.border = "1px solid black";
-    setselectedsize("")
+    setselectedsize("");
   };
-
-  
+  // console.log(Cart);
 
   const discount =
     ((props.old_price - props.new_price) / props.new_price) * 100;
@@ -218,11 +218,10 @@ const ProductDisplay = (props) => {
               onClick={handlecart}
               className="bag cursor-pointer w-[267px] h-[50px] border rounded-lg bg-red-500 flex justify-center items-center gap-2"
             >
-              
               <img className="w-[30px]" src={bag} alt="" />
               <div className="font-semibold text-white">ADD TO BAG</div>
             </div>
-           
+
             <div
               style={{
                 pointerEvents: inwishlist ? "none" : "auto",

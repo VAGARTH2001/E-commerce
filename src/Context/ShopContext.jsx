@@ -1,10 +1,11 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import products from "../Components/Assest/product";
 
 export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [Cart, setCart] = useState([]);
   const [wishlist, setwishlist] = useState([]);
+  const [Data, setData] = useState([]);
 
   // Add to wishlist
   const addtowishlist = (id, selectedsize) => {
@@ -33,10 +34,10 @@ const ShopContextProvider = (props) => {
   // Add to cart
 
   const addtocart = (id, selectedsize) => {
-    setCart((prevCart) => {
-      const itemindex = prevCart.findIndex((item) => {
-        return item.id === id && item.size === selectedsize;
-      });
+    let data = setCart((prevCart) => {
+      const itemindex = prevCart.findIndex(
+        (item) => item.id === id && item.size === selectedsize
+      );
 
       if (itemindex !== -1) {
         const updatedCart = [...prevCart];
@@ -48,13 +49,16 @@ const ShopContextProvider = (props) => {
         return updatedCart;
       } else if (selectedsize !== null) {
         const newItem = { id, number: 1, size: selectedsize };
+
         return [...prevCart, newItem];
+      } else {
+        return prevCart; // Ensure a new state is always returned
       }
     });
   };
-  console.log(Cart);
 
-  // Store cart in localstorage
+  
+  // // Store cart in localstorage
   const storecart = () => {
     const cartstring = JSON.stringify(Cart);
     localStorage.setItem("Cart", cartstring);
@@ -62,33 +66,59 @@ const ShopContextProvider = (props) => {
 
   // Retrieve Cart from localstorage
 
-  const getcart =()=>{
-    const cartstring = localStorage.getItem('Cart')
-    return JSON.parse(cartstring) || []
+  const getcart = ()=>{
+    const storedCart = JSON.parse(localStorage.getItem('Cart')) || [];
+    setCart(storedCart);
   }
-  // Manage cart on page reload  
-  const initcart =()=>{
-    setCart(getcart())
-  }
-  // Remove from cart
 
-  const removefromcart = (id, selectedsize) => {
-    setCart((prevCart) =>
-      prevCart.filter((item) => !(item.id === id && item.size === selectedsize))
-    );
+  
+  // Show items in Cart
+
+  const getInfo = (cart, products, setData) => {
+    const newData = cart.map((item) => {
+      const product = products.find((element) => element.id === item.id);
+      if (product) {
+        const {
+          image,
+          name,
+          brand,
+          new_price: newPrice,
+          category,
+          old_price: oldPrice,
+        } = product;
+        return { ...item, image, name, brand, newPrice, category, oldPrice };
+      }
+      return item;
+    });
+    setData(newData);
   };
+
+  // Remove from Cart
+  const removeCart = (id, size) => {
+    let updatedData = Data.filter(item => !(item.id === id && item.size === size));
+    setData(updatedData);
+  }
+  
+
+  
 
   const contextValue = {
     products,
     Cart,
     addtocart,
-    removefromcart,
     addtowishlist,
     wishlist,
     removefromwishlist,
+    setCart,
     storecart,
     getcart,
-    initcart
+    getInfo,
+    Data,
+    setData,
+    removeCart
+    
+    
+    
   };
 
   return (
