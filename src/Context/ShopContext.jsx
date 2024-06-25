@@ -7,6 +7,9 @@ const ShopContextProvider = (props) => {
   const [wishlist, setwishlist] = useState([]);
   const [Data, setData] = useState([]);
 
+
+  
+
   // Add to wishlist
   const addtowishlist = (id, selectedsize) => {
     setwishlist((prevwishlist) => {
@@ -95,8 +98,8 @@ const ShopContextProvider = (props) => {
 
   // Remove from Cart
   const removeCart = (id, size) => {
-    let updatedData = Data.filter(item => !(item.id === id && item.size === size));
-    setData(updatedData);
+    let updatedData = Cart.filter(item => !(item.id === id && item.size === size));
+    setCart(updatedData);
   }
   
 

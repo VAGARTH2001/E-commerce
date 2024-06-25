@@ -6,7 +6,7 @@ const Cartcomponent = ({item}) => {
  const {removeCart} = useContext(ShopContext);
 
 
-  
+ 
    const handleclose = ()=>{removeCart(item.id , item.size)} 
     
     const discount =
@@ -14,7 +14,7 @@ const Cartcomponent = ({item}) => {
   return (
     <>
     
-      <div className="card w-[85%] h-[220px] border  mt-4 ml-36 flex">
+      <div className="card w-[85%] h-[220px] border  mt-4 ml-[100px] flex">
         <div className="image h-[210px] w-[140px] mt-2 ml-2 border border-white   ">
           <img className="h-[205px] pb-3" src={item.image} alt="" />
         </div>
