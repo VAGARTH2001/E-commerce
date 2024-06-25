@@ -13,7 +13,7 @@ const Category = () => {
           <p className="ml-5 pt-9 font-bold text-xl">Women's Clothing</p>
           <div className="cards flex gap-6 ml-5 mt-5">
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   className="rounded-t-xl"
                   alt="1"

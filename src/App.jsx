@@ -30,6 +30,7 @@ function App() {
       <Route path='/mens/MensTops' element = {<ShopCategory category="MaleTops" />}/>
       <Route path='/mens/MensBottoms' element = {<ShopCategory category="MaleBottoms" />}/>
       <Route path='/womens/WomensFootwear' element = {<ShopCategory category ='FemaleFootwear' />}/>
+      <Route path='/womens/WomensTopwear' element = {<ShopCategory category ='FemaleTops' />}/>
       <Route path='/kids/KidsFootwear' element = {<ShopCategory category ='KidsFootwear' />}/>
       <Route path='/kids/KidsWear' element = {<ShopCategory category ='Kids' />}/>
       <Route path='/product' element = {<Product/>}/>
