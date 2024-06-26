@@ -24,7 +24,7 @@ const Category = () => {
               </Link>
             </div>
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   alt="2"
                   src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/WomensSBC/Unrec/Kurtas_434x658_1709809594316_1._CB580646075_.png"
@@ -34,7 +34,7 @@ const Category = () => {
               </Link>
             </div>
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   alt="3"
                   src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/WomensSBC/Unrec/Sarees_434x658_1709809594318_2._CB580646075_.png"
@@ -44,7 +44,7 @@ const Category = () => {
               </Link>
             </div>
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   alt="4"
                   src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/WomensSBC/Unrec/Sportswear_434x658_1710098116553_0._CB580670357_.png"
@@ -54,7 +54,7 @@ const Category = () => {
               </Link>
             </div>
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   alt="5"
                   src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/WomensSBC/Unrec/Dresses_and_jumpsuits_434x658_1709809594320_4._CB580646075_.png"
@@ -64,7 +64,7 @@ const Category = () => {
               </Link>
             </div>
             <div className="card w-[220px]">
-              <Link>
+              <Link to='/womens/WomensTopwear'>
                 <img
                   alt="6"
                   src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/WomensSBC/Unrec/Lingerie_434x658_1709809594322_5._CB580646075_.png"
@@ -215,62 +215,62 @@ const Category = () => {
         <p className="ml-5 pt-9 font-bold text-xl">Top Brands Offers</p>
         <div className="cards flex gap-6 ml-5 mt-5 flex-wrap ">
         <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensTopwear'>
             <img alt="1" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Anni_designer._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Anni_designer._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensTopwear'>
             <img alt="2" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Allen_Solly_1._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Allen_Solly_1._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensFootwear'>
             <img alt="3" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Asian._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Asian._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/mens/MensFootwear'>
             <img alt="6" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Campus._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Campus._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensTopwear'>
             <img alt="8" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Janasya._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Janasya._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/mens/MensFootwear'>
             <img alt="5" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Sparx._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Sparx._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link  to='/mens/MensTops'>
             <img alt="9" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Levis_1._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Levis_1._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link  to='/womens/WomensTopwear'>
             <img alt="10" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Symbol._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands1/UNREC/Symbol._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/mens/MensFootwear'>
             <img alt="1" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Bata._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Bata._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensTopwear'>
             <img alt="3" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Klosia._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Klosia._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/mens/MensTops'>
             <img alt="4" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/TIGC._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/TIGC._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>
           <div className="card w-[220px]">
-            <Link>
+            <Link to='/womens/WomensTopwear'>
             <img alt="10" src="https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Lymio._SX564_QL85_FMpng_.png" class="a-dynamic-image sl-sobe-carousel-sub-card-img" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Topbrands2/Unrec/Lymio._SX564_QL85_FMpng_.png&quot;:[234,564]}" ></img>
             </Link>
           </div>

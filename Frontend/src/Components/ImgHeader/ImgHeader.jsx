@@ -10,12 +10,12 @@ const ImgHeader = () => {
   return (
     <div className=" shop ">
     <div className="imgheader">
-      <Link to='/kids'>
-        <img  src={Shopify} alt="" />
+      <Link to='/'>
+        <img className='' src={Shopify} alt="" />
       </Link>
       <div className="part flex cursor-pointer">
         <img onClick={()=>{navigate('/mens/MensTops')}} className="w-[50%]" src={left} alt="" />
-        <img className="w-[50%]" src={right} alt="" />
+        <img onClick={()=>{navigate('/womens/WomensTopwear')}} className="w-[50%]" src={right} alt="" />
       </div>
 
      <Link><img className='' draggable="false" class="image-image undefined " src="https://assets.myntassets.com/w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2024/6/12/204642d1-12af-4254-9457-f31230d7538b1718179286687-Crazy-Deals.jpg"></img></Link> 

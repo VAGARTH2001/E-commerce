@@ -6,6 +6,7 @@ import KidsWear from "../KidsWear/KidsWear";
 import MaleTops from "../MaleTops/MaleTops";
 import MaleBottoms from "../MaleBottoms/MaleBottoms";
 import FemaleTops from "../FemaleTops/FemaleTops";
+import FemaleBottoms from "../FemaleBottoms/FemaleBottoms";
 
 const MenData = (props) => {
   return (
@@ -22,7 +23,11 @@ const MenData = (props) => {
         <MaleTops />
       ) : props.category === "MaleBottoms" ? (
         <MaleBottoms />
-      ) : props.category === "FemaleTops" ? (<FemaleTops/>): null}
+      ) : props.category === "FemaleTops" ? (
+        <FemaleTops />
+      ) : props.category === "FemaleBottoms" ? (
+        <FemaleBottoms />
+      ) : null}
     </div>
   );
 };
