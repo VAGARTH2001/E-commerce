@@ -6,7 +6,7 @@ const Category = () => {
   return (
     <div>
       <div className="img">
-        <img src={C1} alt="" />
+        <img className="max-w-[1500px] pt-4" src={C1} alt="" />
       </div>
       <div className="womens ">
         <div className="box bg-gray-200 w-[1480px] h-[430px] ml-5 mr-5 rounded-lg">

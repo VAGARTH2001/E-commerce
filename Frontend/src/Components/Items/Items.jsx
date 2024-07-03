@@ -41,71 +41,99 @@ const Items = () => {
     slidesToScroll: 6,
     arrows:false,
     autoplay :true,
-    autoplaySpeed:4000
+    autoplaySpeed:2500,
+    responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+            dots: false
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            dots:false
+          }
+        }
+      ]
+    
     
   };
   return (
-    <div className='cards cursor-pointer   '>
+    <div className='cards cursor-pointer w-[1510px]  '>
      <Slider {...settings}>
         <div onClick={()=>{navigate('/mens/MensTops')}} className="card   ">
-            <img className='w-[250px]' src={card0} alt="" />
+            <img className='' src={card0} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensTops')}} className="card ">
-            <img className='w-[250px]' src={card1} alt="" />
+            <img className='' src={card1} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensTops')}} className="card ">
-            <img className='w-[250px]' src={card2} alt="" />
+            <img className='' src={card2} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card3} alt="" />
+            <img className='' src={card3} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card4} alt="" />
+            <img className='' src={card4} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card5} alt="" />
+            <img className='' src={card5} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card6} alt="" />
+            <img className='' src={card6} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensFootwear')}} className="card ">
-            <img className='w-[250px]' src={card7} alt="" />
+            <img className='' src={card7} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensTops')}} className="card ">
-            <img className='w-[250px]' src={card8} alt="" />
+            <img className='' src={card8} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card9} alt="" />
+            <img className='' src={card9} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensFootwear')}} className="card ">
-            <img className='w-[250px]' src={card10} alt="" />
+            <img className='' src={card10} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card11} alt="" />
+            <img className='' src={card11} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensFootwear')}}  className="card ">
-            <img className='w-[250px]' src={card12} alt="" />
+            <img className='' src={card12} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensBottomwear')}}  className="card ">
-            <img className='w-[250px]' src={card13} alt="" />
+            <img className='' src={card13} alt="" />
         </div>
         <div  onClick={()=>{navigate('/mens/MensTops')}} className="card ">
-            <img className='w-[250px]' src={card14} alt="" />
+            <img className='' src={card14} alt="" />
         </div>
         <div  onClick={()=>{navigate('/mens/MensTops')}} className="card ">
-            <img className='w-[250px]' src={card15} alt="" />
+            <img className='' src={card15} alt="" />
         </div>
         <div onClick={()=>{navigate('/mens/MensFootwear')}} className="card ">
-            <img className='w-[250px]' src={card16} alt="" />
+            <img className='' src={card16} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card17} alt="" />
+            <img className='' src={card17} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card18} alt="" />
+            <img className='' src={card18} alt="" />
         </div>
         <div onClick={()=>{navigate('/womens/WomensTopwear')}} className="card ">
-            <img className='w-[250px]' src={card19} alt="" />
+            <img className=' ' src={card19} alt="" />
         </div>
 
         </Slider>
